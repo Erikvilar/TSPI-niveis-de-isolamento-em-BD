@@ -1,17 +1,17 @@
-package com.niveisisolamento.project.model;
-
+package com.niveisisolamento.project.controller.MetodoOtimista;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
-import jakarta.persistence.Version;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import static jakarta.persistence.GenerationType.IDENTITY;
+
+import com.niveisisolamento.project.model.Pedidos;
 
 import jakarta.persistence.CascadeType;
 
@@ -19,8 +19,8 @@ import jakarta.persistence.CascadeType;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "tb_detalhes_pedido")
-public class DetalhesPedido {
+@Table(name = "tb_detalhes_pedido_otimista")
+public class DetalhesPedidoOtimista {
 
 
 
@@ -35,9 +35,8 @@ public class DetalhesPedido {
     private Pedidos pedidoID;
     
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
-    private Produto produtoID;
-    @Version
-    private Integer version;
+    private ProdutoOtimista produtoID;
+
 
 
 

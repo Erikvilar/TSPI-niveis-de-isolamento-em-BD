@@ -7,6 +7,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import jakarta.persistence.Version;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -30,9 +31,10 @@ public class Pedidos {
     private Long pedidoID;
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "clienteID")
+    @JoinColumn( name = "clienteID")
     private ClientesUser clienteID;
-
+    
+ 
     private LocalDateTime dataPedido = LocalDateTime.now();
 
 }

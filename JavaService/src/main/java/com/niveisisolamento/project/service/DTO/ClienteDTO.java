@@ -18,7 +18,4 @@ public class ClienteDTO {
     private String telefone;
     private String fax;
 
- 
-  
- 
 }

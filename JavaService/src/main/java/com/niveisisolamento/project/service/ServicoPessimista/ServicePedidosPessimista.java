@@ -1,4 +1,4 @@
-package com.niveisisolamento.project.service;
+package com.niveisisolamento.project.service.ServicoPessimista;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,10 +11,10 @@ import com.niveisisolamento.project.model.Produto;
 import com.niveisisolamento.project.repositories.ClientesRepository;
 import com.niveisisolamento.project.repositories.DetalhePedidoRepository;
 import com.niveisisolamento.project.repositories.PedidoRepository;
-import com.niveisisolamento.project.repositories.ProdutoRespository;
+import com.niveisisolamento.project.repositories.pessimist.ProdutoPessimistaRespository;
 import com.niveisisolamento.project.service.DTO.CriarPedidoDTO;
 import com.niveisisolamento.project.service.DTO.DetalhePedidoDTO;
-import com.niveisisolamento.project.service.DTO.ProdutoDTO;
+
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -22,11 +22,11 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @Service
 @RequiredArgsConstructor
-public class ServicePedidos {
+public class ServicePedidosPessimista {
 
     private final PedidoRepository pedidoRepository;
     private final ClientesRepository clientesRepository;
-    private final ProdutoRespository produtoRespository;
+    private final ProdutoPessimistaRespository produtoRespository;
     private final DetalhePedidoRepository detalhePedidoRepository;
 
     public ResponseEntity<?> CriarPedido(CriarPedidoDTO criarPedidoDTO) {
@@ -52,7 +52,8 @@ public class ServicePedidos {
             log.info("quantidade esgotada");
             return new ResponseEntity<>("PRODUTO ESGOTADO", HttpStatus.CONFLICT);
         }
-        log.info("QUANTIDADE RESTANTE {} CLIENTE {} COMPRPOU {} ID {}", quantidadeRestante, cliente.getNome(), produto.getProdutoNome(), produto.getProdutoID());
+        log.info("QUANTIDADE RESTANTE {} CLIENTE {} COMPRPOU \\n" + //
+        " ( {} vezes ){} ID {}", quantidadeRestante, cliente.getNome(), criarPedidoDTO.getQuantidade(), produto.getProdutoNome(), produto.getProdutoID());
         detalhesPedido.setQuantidade(quantidadeRestante);
         produto.setUnidadeEmEstoque(quantidadeRestante);
         detalhesPedido.setDesconto(criarPedidoDTO.getDesconto());
@@ -64,20 +65,6 @@ public class ServicePedidos {
 
     }
 
-    public ResponseEntity<String> cadastrarProduto(ProdutoDTO produtoDTO) {
 
-        Produto produto = new Produto();
-        produto.setCategoriaID(produtoDTO.getCategoriaID());
-        produto.setImagem(produtoDTO.getImagem());
-        produto.setPreco(produtoDTO.getPreco());
-        produto.setProdutoNome(produtoDTO.getProdutoNome());
-        produto.setUnidadeEmEstoque(produtoDTO.getUnidadeEmEstoque());
-        Produto response = produtoRespository.save(produto);
-
-        return new ResponseEntity<>(
-                response.getProdutoNome() + " foi cadastrado no sistema ID:" + response.getProdutoID(),
-                HttpStatus.CREATED);
-
-    }
 
 }

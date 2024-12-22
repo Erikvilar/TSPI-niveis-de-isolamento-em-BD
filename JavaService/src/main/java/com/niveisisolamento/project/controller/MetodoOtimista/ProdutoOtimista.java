@@ -1,11 +1,8 @@
-package com.niveisisolamento.project.model;
-
+package com.niveisisolamento.project.controller.MetodoOtimista;
 import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+
 import jakarta.persistence.Table;
 import jakarta.persistence.Version;
 import lombok.AllArgsConstructor;
@@ -14,16 +11,14 @@ import lombok.NoArgsConstructor;
 
 import static jakarta.persistence.GenerationType.IDENTITY;
 
-import jakarta.persistence.CascadeType;
 
 @Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "tb_produto")
-public class Produto {
+@Table(name = "tb_produto_pessimista")
+public class ProdutoOtimista {
     
-
     @Id
     @GeneratedValue(strategy = IDENTITY )
     private Integer produtoID;
@@ -32,6 +27,10 @@ public class Produto {
     private Integer unidadeEmEstoque;
     private String imagem;
     private Integer categoriaID;
+
+
+    @Version
+    private Integer version;
 
 
 }

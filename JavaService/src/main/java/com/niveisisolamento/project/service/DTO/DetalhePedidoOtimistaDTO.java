@@ -1,10 +1,9 @@
 package com.niveisisolamento.project.service.DTO;
 
-
+import com.niveisisolamento.project.controller.MetodoOtimista.DetalhesPedidoOtimista;
+import com.niveisisolamento.project.controller.MetodoOtimista.ProdutoOtimista;
 import com.niveisisolamento.project.model.ClientesUser;
-import com.niveisisolamento.project.model.DetalhesPedido;
 import com.niveisisolamento.project.model.Pedidos;
-import com.niveisisolamento.project.model.Produto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -15,17 +14,17 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-public class DetalhePedidoDTO {
+public class DetalhePedidoOtimistaDTO {
     private Integer detalhePedidoID;
     private double precoVenda;
     private Integer quantidade;
     private Double desconto;
     private ClientesUser clienteID;
     private Pedidos pedidosID;
-    private Produto produtoID;
+    private ProdutoOtimista produtoID;
 
-    public DetalhePedidoDTO toDTO(DetalhesPedido detalhesPedido, ClientesUser clientesUser){
-        return new DetalhePedidoDTO(
+    public DetalhePedidoOtimistaDTO toDTO(DetalhesPedidoOtimista detalhesPedido, ClientesUser clientesUser){
+        return new DetalhePedidoOtimistaDTO(
             detalhesPedido.getDetalhePedidoID(),
             detalhesPedido.getPrecoVenda(),
             detalhesPedido.getQuantidade(),
