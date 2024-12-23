@@ -60,7 +60,7 @@ public class ServicePedidos {
         pedidoRepository.save(pedido);
         detalhePedidoRepository.save(detalhesPedido);
         DetalhePedidoDTO detalhePedidoDTO = new DetalhePedidoDTO();
-        return new ResponseEntity<>(detalhePedidoDTO.toDTO(detalhesPedido, cliente), HttpStatus.CREATED);
+        return new ResponseEntity<>(detalhePedidoDTO.toDTO(detalhesPedido), HttpStatus.CREATED);
 
     }
 

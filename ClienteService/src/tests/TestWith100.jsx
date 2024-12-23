@@ -18,16 +18,18 @@ export default function TestWith100({url}) {
      
       const content = {
         clienteID: Math.floor(Math.random() * 5) + 1,
-        produtoID: 36,
+        produtoID: 41,
         valueSpent: 1500.0 * quantidade5or1,
         quantidade: quantidade5or1,
         desconto: 0,
       };
+
+
       const response = await axios.post(url, content);
 
       setResponse(response.status);
       if (response.status === 201) {
-        setCliente(response.data.clienteID);
+        setCliente(response.data.pedidosID.clienteID);
         setProduto(response.data.produtoID);
         setLoop((prevCount) => prevCount + 1);
       }

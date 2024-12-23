@@ -62,7 +62,7 @@ public class ServicePedidosOtimista {
             pedidoRepository.save(pedido);
             detalhePedidoOtimistaRepository.save(detalhesPedido);
             DetalhePedidoOtimistaDTO detalhePedido = new DetalhePedidoOtimistaDTO();
-            return new ResponseEntity<>(detalhePedido.toDTO(detalhesPedido, cliente), HttpStatus.CREATED);
+            return new ResponseEntity<>(detalhePedido.toDTO(detalhesPedido), HttpStatus.CREATED);
         } catch (OptimisticLockingFailureException e) {
             log.error("conflito encontrado", e);
            throw new RuntimeException("conflito encontrado "+e);

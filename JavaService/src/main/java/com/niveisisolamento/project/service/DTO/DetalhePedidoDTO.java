@@ -20,17 +20,15 @@ public class DetalhePedidoDTO {
     private double precoVenda;
     private Integer quantidade;
     private Double desconto;
-    private ClientesUser clienteID;
     private Pedidos pedidosID;
     private Produto produtoID;
 
-    public DetalhePedidoDTO toDTO(DetalhesPedido detalhesPedido, ClientesUser clientesUser){
+    public DetalhePedidoDTO toDTO(DetalhesPedido detalhesPedido){
         return new DetalhePedidoDTO(
             detalhesPedido.getDetalhePedidoID(),
             detalhesPedido.getPrecoVenda(),
             detalhesPedido.getQuantidade(),
             detalhesPedido.getDesconto(),
-            detalhesPedido.getPedidoID().getClienteID(),
             detalhesPedido.getPedidoID(),
             detalhesPedido.getProdutoID());
     }

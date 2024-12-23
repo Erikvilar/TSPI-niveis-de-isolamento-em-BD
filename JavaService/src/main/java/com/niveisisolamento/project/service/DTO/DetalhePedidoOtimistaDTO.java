@@ -19,17 +19,15 @@ public class DetalhePedidoOtimistaDTO {
     private double precoVenda;
     private Integer quantidade;
     private Double desconto;
-    private ClientesUser clienteID;
     private Pedidos pedidosID;
     private ProdutoOtimista produtoID;
 
-    public DetalhePedidoOtimistaDTO toDTO(DetalhesPedidoOtimista detalhesPedido, ClientesUser clientesUser){
+    public DetalhePedidoOtimistaDTO toDTO(DetalhesPedidoOtimista detalhesPedido){
         return new DetalhePedidoOtimistaDTO(
             detalhesPedido.getDetalhePedidoID(),
             detalhesPedido.getPrecoVenda(),
             detalhesPedido.getQuantidade(),
             detalhesPedido.getDesconto(),
-            detalhesPedido.getPedidoID().getClienteID(),
             detalhesPedido.getPedidoID(),
             detalhesPedido.getProdutoID());
     }

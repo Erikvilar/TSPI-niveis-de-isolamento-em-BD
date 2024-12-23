@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 
-export default function TestWith1000() {
+export default function TestWith1000({url}) {
 
   const [response, setResponse] = useState([]);
   const [cliente, setCliente] = useState([]);
@@ -10,14 +10,14 @@ export default function TestWith1000() {
   const [duration, setDuration] = useState(0);
 
 
-  const makeRequests = async (url) => {
+  const makeRequests = async () => {
     const quantidade5or1 = Math.floor(Math.random() * 5) + 1;
     const startTime = performance.now();
     try {
       
         const content = {
             clienteID: Math.floor(Math.random() * 5) + 1,
-            produtoID: 36,
+            produtoID:41,
             valueSpent: 1500.0 * quantidade5or1,
             quantidade: quantidade5or1,
             desconto: 0,
@@ -26,7 +26,7 @@ export default function TestWith1000() {
 
       setResponse(response.status);
       if (response.status === 201) {
-        setCliente(response.data.clienteID);
+        setCliente(response.data.pedidosID.clienteID);
         setProduto(response.data.produtoID);
         setLoop((prevCount) => prevCount + 1);
       }
@@ -45,7 +45,7 @@ export default function TestWith1000() {
     setLoop(0)
     try {
       const request = Array.from({ length: 1000 }, () =>
-        makeRequests("http://192.168.100.5:6680/pedido_pessimista/novo")
+        makeRequests()
       );
       await Promise.all(request);
     } catch (error) {
