@@ -15,9 +15,9 @@ function App() {
         
         <h1 style={{ textAlign: "center" }}>{option.title}</h1>
         <div style={{display:"flex", justifyContent:"center"}}>
-          <button onClick={()=> setOption({title:"TESTE NA API COM LOCK OTIMISTA", url:"http://192.168.100.5:6680/pedido_otimista/novo"})} style={{backgroundColor:"blue", color:"white", cursor:"pointer"}}>LOCK OTIMISTA</button>
-          <button onClick={()=> setOption({title:"TESTE NA API COM LOCK PESSIMISTA", url:"http://192.168.100.5:6680/pedido_pessimista/novo"})} style={{backgroundColor:"blue", color:"white",cursor:"pointer"}}>LOCK PESSIMISTA</button>
-          <button onClick={()=> setOption({title:"TESTE NA API SEM LOCK", url:"http://192.168.100.5:6680/pedido/novo"})} style={{backgroundColor:"blue", color:"white",cursor:"pointer"}}>SEM LOCK</button>
+          <button onClick={()=> setOption({title:"TESTE NA API COM LOCK OTIMISTA", url:"http://127.0.0.1:6680/pedido_otimista/novo"})} style={{backgroundColor:"blue", color:"white", cursor:"pointer"}}>LOCK OTIMISTA</button>
+          <button onClick={()=> setOption({title:"TESTE NA API COM LOCK PESSIMISTA", url:"http://127.0.0.1:6680/pedido_pessimista/novo"})} style={{backgroundColor:"blue", color:"white",cursor:"pointer"}}>LOCK PESSIMISTA</button>
+          <button onClick={()=> setOption({title:"TESTE NA API SEM LOCK", url:"http://127.0.0.1:6680/pedido/novo"})} style={{backgroundColor:"blue", color:"white",cursor:"pointer"}}>SEM LOCK</button>
          
         </div>
         <div style={{display:"flex",justifyContent:"center", marginTop:15}}>
