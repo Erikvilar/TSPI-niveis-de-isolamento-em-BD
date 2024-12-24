@@ -17,7 +17,7 @@ Após isto inicie a aplicação SPRING com o Dashboard Spring extension junto ao
 
 ## ENDPOINT SEM LOCK
 
-[http://192.168.100.5:6680/pedido/cliente] -- JSON TESTE CLIENTE:
+[http://seuip:6680/pedido/cliente] -- JSON TESTE CLIENTE:
 
 ```
 {
@@ -40,7 +40,7 @@ Após isto inicie a aplicação SPRING com o Dashboard Spring extension junto ao
 
 }
 ```
-[http://192.168.100.5:6680/pedido/produto]
+[http://seuip:6680/pedido/produto]
 -- JSON TESTE PARA PRODUTO
 ### ! Nessa parte após inserir o produto, pegue o ID  retornando como response do produto.
 ### Defina a quantidade para fazer os testes.
@@ -63,7 +63,7 @@ Após isto inicie a aplicação SPRING com o Dashboard Spring extension junto ao
 
 
 USE ESTE ENDPOINT PARA TESTE DO LOCK OTIMISTA
-[http://192.168.100.5:6680/pedido_otimista/produto] --  lock otimista usa  uma tabela separada devido ao uso da anotação 
+[http://seuip:6680/pedido_otimista/produto] --  lock otimista usa  uma tabela separada devido ao uso da anotação 
 
 @Version ou seja e nescessario usar este enpoint no caso do teste em lock otimista, 
 
@@ -87,7 +87,7 @@ Por ser uma tabela separada ele funciona diferente dos outros endpoints ou seja 
 ```
 
 
-[http://192.168.100.5:6680/pedido/novo]
+[http://seuip:6680/pedido/novo]
 -- JSON TESTE PARA CRIAR PEDIDO
 ### Este enpoint e crucial para o testes, para testar outro produto passe outro ID de um novo produto criado.
 ```
